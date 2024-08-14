@@ -15,6 +15,7 @@ def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
         v (Union[int, float]): An integer or floating point number.
 
     Returns:
-        Tuple[str, float]: A tuple where the first element is k and the second element is the square of v.
+        Tuple[str, float]: A tuple where the first element is k
+        and the second element is the square of v.
     """
-    return (k, float(v**2))
+    return (k, v**2)
