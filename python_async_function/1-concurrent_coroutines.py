@@ -10,8 +10,6 @@ wait_random = __import__('0-basic_async_syntax').wait_random
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Executes wait_random n times in pararell using asyncio.gather
-
     Args:
         n (int): Number of times to execute wait_random.
         max_delay (int): Maximum delay time for wait_random.
