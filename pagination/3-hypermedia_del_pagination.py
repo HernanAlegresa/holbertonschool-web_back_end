@@ -5,7 +5,7 @@ Deletion-resilient hypermedia pagination
 
 import csv
 import math
-from typing import List
+from typing import List, Dict, Any
 
 
 class Server:
@@ -49,8 +49,6 @@ class Server:
         Returns:
             Dict[str, Any]: A dictionary with pagination metadata.
         """
-        assert isinstance(index, int) and 0 <= index <
-        len(self.indexed_dataset())
         assert isinstance(page_size, int) and page_size > 0
 
         dataset = self.indexed_dataset()  # Obtener el dataset indexado
