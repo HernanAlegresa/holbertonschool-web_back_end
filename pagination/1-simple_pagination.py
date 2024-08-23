@@ -5,7 +5,7 @@ Server class to paginate a database of popular baby names.
 
 import csv
 from typing import List
-index_range = __import__('0-simple_helper_function.py').index_range
+index_range = __import__('0-simple_helper_function').index_range
 
 
 class Server:
