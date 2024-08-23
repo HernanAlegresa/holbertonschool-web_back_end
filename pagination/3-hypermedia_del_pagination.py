@@ -49,6 +49,9 @@ class Server:
         Returns:
             Dict[str, Any]: A dictionary with pagination metadata.
         """
+        if index is None:
+            index = 0
+
         assert isinstance(page_size, int) and page_size > 0
 
         dataset = self.indexed_dataset()  # Obtener el dataset indexado
