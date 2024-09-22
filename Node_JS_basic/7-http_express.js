@@ -1,59 +1,10 @@
-const express = require('express');
-const fs = require('fs').promises;
+/*
+In a file named 7-http_express.js, recreate the small HTTP server using Express:
 
-const app = express();
-const port = 1245;
-
-async function countStudents(path) {
-  try {
-    const data = await fs.readFile(path, 'utf-8');
-    const lines = data.trim().split('\n').filter(line => line !== '');
-    
-    if (lines.length <= 1) {
-      throw new Error('No valid data found in the file');
-    }
-
-    const students = lines.slice(1);  // Ignorar encabezados
-    let totalStudents = 0;
-    const fields = {};
-
-    students.forEach((line) => {
-      const [firstName, , , field] = line.split(',');
-      if (!fields[field]) {
-        fields[field] = [];
-      }
-      fields[field].push(firstName);
-      totalStudents += 1;
-    });
-
-    let response = `Number of students: ${totalStudents}\n`;
-
-    Object.keys(fields).forEach((field) => {
-      const studentList = fields[field].join(', ');
-      response += `Number of students in ${field}: ${fields[field].length}. List: ${studentList}\n`;
-    });
-
-    return response.trim();
-  } catch (error) {
-    throw new Error('Cannot load the database');
-  }
-}
-
-app.get('/', (req, res) => {
-  res.send('Hello Holberton School!');
-});
-
-app.get('/students', async (req, res) => {
-  try {
-    const studentList = await countStudents(process.argv[2]);
-    res.send(`This is the list of our students\n${studentList}`);
-  } catch (error) {
-    res.status(500).send('This is the list of our students\nCannot load the database');
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
-
-module.exports = app;
+It should be assigned to the variable app and this one must be exported
+HTTP server should listen on port 1245
+It should return plain text
+When the URL path is /, it should display Hello Holberton School! in the page body
+When the URL path is /students, it should display This is the list of our students followed by the same content as the file 3-read_file_async.js (with and without the database) - the name of the database must be passed as argument of the file
+CSV file can contain empty lines (at the end) - and they are not a valid student!
+*/
