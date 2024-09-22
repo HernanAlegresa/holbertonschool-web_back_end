@@ -30,9 +30,4 @@ async function countStudents(path) {
   }
 }
 
-const filePath = process.argv[2];
-if (filePath) {
-  countStudents(filePath);
-} else {
-  console.error('No file path provided');
-}
+module.exports = countStudents;
